@@ -28,14 +28,15 @@ We have 4 entities:
     OxfordSEM - Full thin section heat maps showing where there is a lot (bright) and a little (dark) of an element of interest. Point data in the form of csv files are also exported to represent mapping of all elements in the sample.
 
     ZeissSEM - Point data on the elemental composition of each element in the sample.
+- Map: A map is either an image taken from the microscopes in .tif or .czi format from the AxioImager and AxioScope, or point data in .csv or .txt format from mineralogic analysis software, ZeissSEM and OxfordSEM.
 
 ![ER Model](./res/ER-model.png)
 
 ## **Milestones**
 - [x] **Meet with the customer**
 - [x] **Preliminary ER Diagram**
-- [ ] **Pitch idea to the customer and refine ER Model if necessary**
-- [ ] **Set up linux environment**
+- [x] **Pitch idea to the customer and refine ER Model if necessary**
+- [x] **Set up linux environment**
 - [ ] **Set up database using PostgreSQL**
 - [ ] **Set up the database in a Docker container**
 - [ ] **Set up the API layer in NodeJS and Express JS**
