@@ -2,7 +2,7 @@
 Developed by: **Ian Kamweru, Guilherme Santos, Abdul Rauf, & Arjun Kejriwal**
 
 ## **Background & Project Statement**
-The Beneski Scanning Electron Microscope Lab faces the challenge of managing a substantial dataset comprising approximately 2 terabytes of images and point data originating from geological specimens collected worldwide. These data encompass a wide array of samples, ranging from microscopic rock formations to intricate mineral structures, all meticulously captured using both light microscopes and advanced scanning electron microscopes. 
+The Beneski Scanning Electron Microscope Lab faces the challenge of managing a substantial dataset comprising approximately 2 terabytes of images and point data originating from geological specimens collected worldwide. The data consists of a wide array of samples, ranging from microscopic rock formations to intricate mineral structures, captured using light microscopes and scanning electron microscopes. 
 
 All of the data is stored on a TrueNAS Scale server encompassing the output from two distinct microscopes and two specialized mineralogic software. There is a need for a cohesive data management system that will allow consolidation of data for each project's samples. This will help lab users access all their relevant sample data quickly from both microscopes and mineralogic software streamlining their user experience.
 
@@ -62,10 +62,13 @@ We have 4 entities:
 
 ## **Stretch Goals**
 - [ ] **Containerize the platform in a Docker image**
+- [ ] **Deploy the docker image on the actual TrueNAS server where real data is stored**
 
 ## Open Questions
-1. Search capabilities
-2. Server access
+1. What search & filter capabilities should we implement if any? *At the moment, we aim to provide search capabilities by `project-name` and `sample-name`*
+2. Is there a way we can store the path to a folder rather than a specific file as the mineralogic software sometimes generates folders with multiple images and csv's in them rather than single files?
+3. How do we access the file system of the TrueNAS Scale server in order to extract file paths?
+4. How do we create symbolic links to the files on the server to allow users to be directed to the specific file when they click on a particular one in the UI?
 
 ## Role Assignments
 | Ian | Guilherme | Abdul | Arjun |
