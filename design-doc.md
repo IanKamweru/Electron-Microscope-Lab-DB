@@ -66,3 +66,11 @@ We have 4 entities:
 ## Open Questions
 1. Search capabilities
 2. Server access
+
+## Role Assignments
+| Ian | Guilherme | Abdul | Arjun |
+|----------|----------|----------|----------|
+|- Create & populate the database and tables needed |- Complete conversion of ER schema to a relational schema in normal form |- Complete conversion of ER schema to a relational schema in normal form |- Create & populate the database and tables needed |
+|- Build the API layer in JavaScript | - Build the API layer in JavaScript |- Build the API layer in JavaScript |- Devise example SQL queries to show interaction with the database |
+|- Build the front end in React |- Build the front end in React |- Build the front end in React |- Build the front end in React |
+
