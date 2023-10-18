@@ -32,6 +32,10 @@ We have 4 entities:
 
 ![ER Model](https://github.com/IanKamweru/Electron-Microscope-Lab-DB/blob/085ba2448c2d384b9052d7c9836188a8264c3470/Current%20E-R%20Model.png)
 
+## Relational Schema
+
+![Relational Schema](https://github.com/IanKamweru/Electron-Microscope-Lab-DB/blob/027a8a74c870d504767cd79bd57516e827298496/Relational%20Schema%20Diagram.jpeg)
+
 ## Software Installed
 - **postgresql v13.11 - database management system :** `sudo yum install postgresql-server`
 - **vim v8.2 - text editor :** `sudo yum install vim`
