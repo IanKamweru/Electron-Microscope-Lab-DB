@@ -13,7 +13,7 @@ CREATE TABLE Sample (
     sampling_locality VARCHAR(128),
     notes VARCHAR(1024),
     project_name VARCHAR(50) REFERENCES Project(project_name),
-    dat DATE
+    date DATE
 
 );
 
