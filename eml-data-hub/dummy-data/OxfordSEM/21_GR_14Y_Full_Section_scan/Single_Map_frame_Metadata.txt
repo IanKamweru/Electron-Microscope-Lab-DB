@@ -1,0 +1,26 @@
+﻿Label:	Zr L series
+Collected:	8/23/2023 4:35:22 PM
+Resolution (Width):	128 pixels
+Resolution (Height):	96 pixels
+Pixel Size:	8.81838 µm
+Image Width:	1.13mm
+Image Height:	847μm
+Accelerating Voltage:	20.00kV
+Magnification:	100 x
+Working Distance:	9.0mm
+Stage X:	87.308mm
+Stage Y:	21.405mm
+Stage Z:	41.431mm
+Stage Tilt Degrees:	0.00°
+Stage Rotate:	18.1°
+Binning Factor:	1
+Smoothing Level:	1
+Number of Completed Frames:	1
+Dwell Time:	20ms
+Energy Range (keV):	20 keV
+Number Of Channels:	2048
+Process Time:	3
+Maximum pixel value:	81.3 counts
+Total Counts in Element Map:	-500553.8 counts
+Primary Detector:	UltimMax
+Primary Detector Serial Number:	UVA11440
