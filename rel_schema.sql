@@ -1,4 +1,3 @@
-```
 CREATE TABLE Project (
     project_name VARCHAR(50) PRIMARY KEY,
     supervising_professor VARCHAR(128),
@@ -35,4 +34,3 @@ CREATE TABLE Map (
     project_name VARCHAR(50) REFERENCES Project(project_name),
     date DATE
 );
-```
