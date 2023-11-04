@@ -42,7 +42,10 @@ We have 4 entities:
 - **git v2.39.3 = version control :** `sudo yum install git`
 - **node v16.20.2 - JavaScript runtime environment :** `sudo yum install nodejs`
 - **npm v8.19.4 - package manager for Node.js :** `sudo yum install nodejs`
-- **pg-promise v11.5.4 - :** `sudo npm install pg-promise`
+
+### Dependencies
+- **pg-promise**
+- **csv-writer**
 
 ## **Milestones**
 ### Phase 1
