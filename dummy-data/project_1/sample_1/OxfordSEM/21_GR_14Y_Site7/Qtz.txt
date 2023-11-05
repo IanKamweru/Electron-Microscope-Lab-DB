@@ -1,0 +1,30 @@
+Label:	Qtz
+Element List Type:	Fixed List
+Processing Option:	Oxygen by Stoichiometry
+Specimen Coating:	On
+Beam Calibration Element Coating:	Off
+Coating Element:	Carbon
+Coating Thickness:	10 nm
+Coating Density:	2.25 g/cm³
+Automatic Line Selection:	Disabled
+Normalization:	Enabled
+Thresholding:	Disabled
+Detector Window Correction:	Enabled
+Deconvolution Elements:	None
+EDS Standards:	Quant Standardizations (Mar 02 2022) [ User ]
+Pulse Pile Up Correction:	Succeeded
+Detector file:	X-Max 19
+Efficiency:	File based
+Version of Core assembly used:	5.1.0.0
+
+Qtz	Line Type	Apparent Concentration	k Ratio	Wt%	Wt% Sigma	Standard Label	Factory Standard	Standard Calibration Date
+O				53.15				
+Mg	K series	0.00	0.00000	0.00	0.02	MgO	Yes	
+Al	K series	0.02	0.00012	0.02	0.02	Al2O3	Yes	
+Si	K series	37.93	0.30058	46.58	0.08	SiO2	Yes	
+K	K series	0.15	0.00130	0.21	0.02	KBr	Yes	
+Ca	K series	0.01	0.00009	0.01	0.02	Wollastonite	Yes	
+Ti	K series	0.00	0.00005	0.01	0.02	Ti	Yes	
+Mn	K series	0.00	0.00000	0.00	0.03	Mn	Yes	
+Fe	K series	0.01	0.00014	0.02	0.03	Fe	Yes	
+Total				100.00				
