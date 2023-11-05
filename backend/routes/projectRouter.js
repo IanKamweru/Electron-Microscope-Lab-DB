@@ -8,9 +8,10 @@ router.get('/', async (req, res) => {
   try {
     const projects = await db.any('SELECT * FROM Project');
     const projectObjects = projects.map(project => new Project(project.project_name, project.supervising_professor, project.student_researchers, project.goal));
+    console.log('Projects:', projects);
     res.json(projectObjects);
   } catch (error) {
-    res.status(500).json({ error: 'Error getting projects.' });
+    res.status(500).json({ error: `Error getting projects: ${error.message}` });
   }
 });
 
@@ -22,7 +23,7 @@ router.post('/', async (req, res) => {
     const projectObject = new Project(createdProject.project_name, createdProject.supervising_professor, createdProject.student_researchers, createdProject.goal);
     res.status(201).json(projectObject);
   } catch (error) {
-    res.status(500).json({ error: 'Error creating a project.' });
+    res.status(500).json({ error: `Error getting projects: ${error.message}` });
   }
 });
 

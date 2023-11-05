@@ -83,13 +83,6 @@ async function validateTables() {
 }
 
 // Call the function to validate tables
-validateTables()
-  .then(() => {
-    // Close the database connection
-    db.$pool.end();
-  })
-  .catch((error) => {
-    console.error('Error closing the database connection:', error);
-  });
+validateTables();
 
 module.exports = db;
