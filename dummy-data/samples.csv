@@ -1,0 +1,5 @@
+sample_name,student_samplers,sampling_locality,year_sampled,notes,project_name
+sample_1,"{Arjun Kejriwal,Bob Doe}","New York",2022-01-15,"Sample from New York in 2022","project_1"
+sample_2,"{Charlie Austin,John Doe}","Utah",2021-03-20,"Sample from Utah in 2021","project_1"
+sample_a,"{Alice Rogers,Bob Dylan}","Texas",2023-01-15,"Sample from Texas in 2023","project_2"
+sample_b,"{Charles Rock,David West}","Idaho",2020-03-20,"Sample from Idaho in 2020","project_2"
