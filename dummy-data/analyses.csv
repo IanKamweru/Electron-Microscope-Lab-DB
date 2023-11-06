@@ -1,0 +1,17 @@
+analysis_type,sample_name,project_name
+AxioImager,sample_1,project_1
+AxioScope,sample_1,project_1
+ZeissSEM,sample_1,project_1
+OxfordSEM,sample_1,project_1
+AxioImager,sample_2,project_1
+AxioScope,sample_2,project_1
+ZeissSEM,sample_2,project_1
+OxfordSEM,sample_2,project_1
+AxioImager,sample_a,project_2
+AxioScope,sample_a,project_2
+ZeissSEM,sample_a,project_2
+OxfordSEM,sample_a,project_2
+AxioImager,sample_b,project_2
+AxioScope,sample_b,project_2
+ZeissSEM,sample_b,project_2
+OxfordSEM,sample_b,project_2
