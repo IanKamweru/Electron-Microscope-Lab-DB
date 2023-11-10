@@ -1,8 +1,8 @@
-const endpoints = require('./apiEndpoints');
-const axios = require('axios');
+import * as endpoints from './apiEndpoints';
+import axios, * as others from 'axios';
 
 // Function to fetch all projects
-exports.getAllProjects = async () => {
+export const getAllProjects = async () => {
   try {
     const response = await axios.get(endpoints.PROJECTS_API.GET_ALL);
     return response.data;
@@ -12,7 +12,7 @@ exports.getAllProjects = async () => {
 };
 
 // Function to fetch samples by project name
-exports.getSamplesByProject = async (projectName) => {
+export const getSamplesByProject = async (projectName) => {
   try {
     const response = await axios.get(endpoints.SAMPLES_API.GET_BY_PROJECT(projectName));
     return response.data;
@@ -22,15 +22,3 @@ exports.getSamplesByProject = async (projectName) => {
 };
 
 // Add more functions for sample, analysis, and map interactions as needed
-
-/*const testGetAllProjects = async () => {
-  try {
-    const projects = await exports.getAllProjects();
-    console.log(projects); // Log the result to the console
-  } catch (error) {
-    console.error('Error:', error);
-  }
-};
-
-// Call the test function
-testGetAllProjects();*/

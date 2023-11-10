@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { getAllProjects } from '../api/api'; // Import your API function
+import { getAllProjects } from '../api/apiClient'; // Import your API function
 
 function ProjectsList() {
   const [projects, setProjects] = useState([]);
@@ -25,6 +25,8 @@ function ProjectsList() {
         {projects.map((project) => (
           <li key={project.project_name}>
             <h2>{project.project_name}</h2>
+            <p>{project.goal}</p>
+            <p>{project.supervising_professor}</p>
             {/* Display other project details here */}
           </li>
         ))}
