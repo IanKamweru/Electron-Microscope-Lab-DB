@@ -7,4 +7,4 @@ class Analysis {
   }
 }
 
-module.exports = Analysis;
+export default Analysis;

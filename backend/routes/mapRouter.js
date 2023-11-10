@@ -1,10 +1,10 @@
-const express = require('express');
-const router = express.Router();
-const db = require('../db');
-const Map = require('../models/Map');
+import express from 'express';
+const mapRouter = express.Router();
+import db from '../db.js';
+import Map from '../models/Map.js';
 
 // Function to get all maps for a specific analysis ID under a sample name
-router.get('/:projectName/:sampleName/:analysisId', async (req, res) => {
+mapRouter.get('/:projectName/:sampleName/:analysisId', async (req, res) => {
   const projectName = req.params.projectName;
   const sampleName = req.params.sampleName;
   const analysisId = req.params.analysisId;
@@ -19,7 +19,7 @@ router.get('/:projectName/:sampleName/:analysisId', async (req, res) => {
 });
 
 // Function to add a new map for a specific analysis ID under a sample name
-router.post('/:projectName/:sampleName/:analysisId', async (req, res) => {
+mapRouter.post('/:projectName/:sampleName/:analysisId', async (req, res) => {
   const projectName = req.params.projectName;
   const sampleName = req.params.sampleName;
   const analysisId = req.params.analysisId;
@@ -48,4 +48,4 @@ router.post('/:projectName/:sampleName/:analysisId', async (req, res) => {
 
 // Add more CRUD routes for maps as needed
 
-module.exports = router;
+export default mapRouter;

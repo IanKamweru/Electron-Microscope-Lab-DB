@@ -1,10 +1,10 @@
-const express = require('express');
-const router = express.Router();
-const db = require('../db');
-const Analysis = require('../models/Analysis');
+import express from 'express';
+const analysisRouter = express.Router();
+import db from '../db.js';
+import Analysis from '../models/Analysis.js';
 
 // Function to get all analyses for a specific sample in a specific project
-router.get('/:projectName/:sampleName', async (req, res) => {
+analysisRouter.get('/:projectName/:sampleName', async (req, res) => {
     const projectName = req.params.projectName;
     const sampleName = req.params.sampleName;
     try {
@@ -18,7 +18,7 @@ router.get('/:projectName/:sampleName', async (req, res) => {
   
 
 // Function to create a new analysis
-router.post('/', async (req, res) => {
+analysisRouter.post('/', async (req, res) => {
   try {
     const newAnalysis = req.body;
     const createdAnalysis = await db.one('INSERT INTO Analysis (analysis_type, sample_name, project_name) VALUES ($1, $2, $3) RETURNING *', [newAnalysis.analysis_type, newAnalysis.sample_name, newAnalysis.project_name]);
@@ -31,4 +31,4 @@ router.post('/', async (req, res) => {
 
 // Add more CRUD routes for analyses as needed
 
-module.exports = router;
+export default analysisRouter;

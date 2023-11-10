@@ -1,12 +1,11 @@
-const express = require('express');
-const bodyParser = require('body-parser');
-const db = require('./db');
-const projectRouter = require('./routes/projectRouter');
-const sampleRouter = require('./routes/sampleRouter');
-const analysisRouter = require('./routes/analysisRouter');
-const mapRouter = require('./routes/mapRouter');
+import express from 'express';
+import bodyParser from 'body-parser';
+import projectRouter from './routes/projectRouter.js';
+import sampleRouter from './routes/sampleRouter.js';
+import analysisRouter from './routes/analysisRouter.js';
+import mapRouter from './routes/mapRouter.js';
+import cors from 'cors';
 
-const cors = require('cors');
 const app = express();
 const port = process.env.PORT || 5000;
 

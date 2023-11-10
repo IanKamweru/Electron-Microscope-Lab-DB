@@ -1,10 +1,10 @@
-const express = require('express');
-const router = express.Router();
-const db = require('../db');
-const Sample = require('../models/Sample');
+import express from 'express';
+const sampleRouter = express.Router();
+import db from '../db.js';
+import Sample from '../models/Sample.js';
 
 // Function to get samples for a specific project
-router.get('/:projectName', async (req, res) => {
+sampleRouter.get('/:projectName', async (req, res) => {
   const projectName = req.params.projectName;
 
   try {
@@ -17,7 +17,7 @@ router.get('/:projectName', async (req, res) => {
 });
 
 // Function to create a new sample
-router.post('/', async (req, res) => {
+sampleRouter.post('/', async (req, res) => {
   try {
     const newSample = req.body;
     const createdSample = await db.one('INSERT INTO Sample (sample_name, student_samplers, sampling_locality, year_sampled, notes, project_name) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *', [newSample.sample_name, newSample.student_samplers, newSample.sampling_locality, newSample.year_sampled, newSample.notes, newSample.project_name]);
@@ -30,4 +30,4 @@ router.post('/', async (req, res) => {
 
 // Add more CRUD routes for samples as needed
 
-module.exports = router;
+export default sampleRouter;

@@ -1,10 +1,10 @@
-const express = require('express');
-const router = express.Router();
-const db = require('../db');
-const Project = require('../models/Project');
+import express from 'express';
+const projectRouter = express.Router();
+import db from '../db.js';
+import Project from '../models/Project.js';
 
 // Function to get all projects
-router.get('/', async (req, res) => {
+projectRouter.get('/', async (req, res) => {
   try {
     const projects = await db.any('SELECT * FROM Project');
     const projectObjects = projects.map(project => new Project(project.project_name, project.supervising_professor, project.student_researchers, project.goal));
@@ -16,7 +16,7 @@ router.get('/', async (req, res) => {
 });
 
 // Function to create a new project
-router.post('/', async (req, res) => {
+projectRouter.post('/', async (req, res) => {
   try {
     const newProject = req.body;
     const createdProject = await db.one('INSERT INTO Project (project_name, supervising_professor, student_researchers, goal) VALUES ($1, $2, $3, $4) RETURNING *', [newProject.project_name, newProject.supervising_professor, newProject.student_researchers, newProject.goal]);
@@ -29,4 +29,4 @@ router.post('/', async (req, res) => {
 
 // Add more CRUD routes for projects as needed
 
-module.exports = router;
+export default projectRouter;
