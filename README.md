@@ -62,21 +62,23 @@ We have 4 entities:
 - [x] **Set up Linux server & install dependencies**
 
 ### Phase 3
-- [ ] **Complete the conversion of the ER schema into the relational schema**
-- [ ] **Create and populate the database and the tables needed**
-- [ ] **example SQL queries that showcase the different ways the user can interact with the database**
-- [ ] **Start implementing the API layer in NodeJS and ExpressJS**
-- [ ] **Start implementing the front end in React**
+- [x] **Complete the conversion of the ER schema into the relational schema**
+- [x] **Create and populate the database and the tables needed**
+- [x] **example SQL queries that showcase the different ways the user can interact with the database**
+- [x] **Start implementing the API layer in NodeJS and ExpressJS**
+- [x] **Start implementing the front end in React**
+
+### Phase 4
+- [ ] **Complete the frontend logic**
+- [ ] **Complete the CSS styling**
 
 ## **Stretch Goals**
 - [ ] **Containerize the platform in a Docker image**
 - [ ] **Deploy the docker image on the actual TrueNAS server where real data is stored**
 
 ## Open Questions
-1. What search & filter capabilities should we implement if any? *At the moment, we aim to provide search capabilities by `project-name` and `sample-name`*
-2. Is there a way we can store the path to a folder rather than a specific file as the mineralogic software sometimes generates folders with multiple images and csv's in them rather than single files?
-3. How do we access the file system of the TrueNAS Scale server in order to extract file paths?
-4. How do we create symbolic links to the files on the server to allow users to be directed to the specific file when they click on a particular one in the UI?
+1. How do we access the file system of the TrueNAS Scale server in order to extract file paths?
+2. We are storing file paths to the maps. Since we can't display the images and csvs directly due to their large sizes, we were aiming to display each map name and make each clickeable redirecting the user to the location of that file. Is this plausible? If not, what else can we do having the file paths?
 
 ## Role Assignments
 | Ian | Guilherme | Abdul | Arjun |
