@@ -24,7 +24,6 @@ CREATE TABLE Analysis (
 CREATE TABLE Map (
     map_name VARCHAR(50) PRIMARY KEY,
     map_description VARCHAR(1024),
-    map_type VARCHAR(50),
     file_path VARCHAR(255),
     date_created DATE,
     analysis_id INT REFERENCES Analysis(analysis_id),
