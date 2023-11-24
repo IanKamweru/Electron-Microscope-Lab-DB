@@ -1,5 +1,5 @@
-import logo from './logo.svg';
-import './App.css';
+
+//import logo from './logo.svg';
 
 /*function App() {
   return (
@@ -25,21 +25,19 @@ import './App.css';
 export default App;*/
 
 import React from 'react';
+import { BrowserRouter, Routes, Route } from "react-router-dom"
 import ProjectsList from './components/ProjectList';
+import './App.css';
+import Home from "./components/Home"
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <h1>Electron Microscope Lab</h1>
-      </header>
-      <main>
-        <ProjectsList />
-        {/* You can add more components here for different sections of your app */}
-      </main>
-    </div>
+    <div className='App'>
+      <Home/>
+      <ProjectsList/>
+
+      </div>
   );
 }
-
 export default App;
 
