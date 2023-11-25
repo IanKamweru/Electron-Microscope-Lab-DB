@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 import { getSamplesByProject } from '../api/apiClient';
 
@@ -36,7 +37,9 @@ const SamplePage = () => {
                 <tbody>
                     {samples.map((sample) => (
                     <tr key={sample.sample_name}>
-                        <td>{sample.sample_name}</td>
+                        <td>
+                            <Link to={`/${project_name}/${sample.sample_name}/Analysis`}>{sample.sample_name}</Link>
+                        </td>
                         <td>{sample.sampling_locality}</td>
                         <td>{new Date(sample.year_sampled).toLocaleDateString()}</td>
                         <td>{sample.student_samplers.map((sampler) => (<p>{sampler}</p>))}</td>
