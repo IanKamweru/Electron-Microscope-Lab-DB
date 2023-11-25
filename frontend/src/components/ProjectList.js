@@ -70,7 +70,7 @@ function ProjectList() {
         projects.map((project) => (
           <tr key={project.project_name}>
             <td> 
-				<Link to={`/samples/${project.project_name}`}>{project.project_name}</Link>
+				<Link to={`/${project.project_name}/samples`}>{project.project_name}</Link>
 			</td>
             <td>{project.goal}</td>
             <td>{project.supervising_professor}</td>
@@ -84,7 +84,7 @@ function ProjectList() {
         filteredResults.map((project) => (
           <tr key={project.project_name}>
             <td>
-				<Link to={`/samples/${project.project_name}`}>{project.project_name}</Link>
+				<Link to={`/${project.project_name}/samples`}>{project.project_name}</Link>
 			</td>
             <td>{project.goal}</td>
             <td>{project.supervising_professor}</td>

@@ -20,22 +20,35 @@ const SamplePage = () => {
     fetchSamples();
   }, [project_name]);
 
-  return (
-    <div>
-      <h1>Samples for Project: {project_name}</h1>
-      {/* Display sample information here */}
-      <ul>
-        {samples.map((sample) => (
-          <li key={sample.sample_name}>
-            <h2>{sample.sample_name}</h2>
-            <p>{sample.sampling_locality}</p>
-            <p>{sample.year_sampled}</p>
-            {/* Display other sample details here */}
-          </li>
-        ))}
-      </ul>
-    </div>
-  );
+    return (
+        <div className='center'>
+            <div className='table-container'>
+                <table className="table">
+                <thead>
+                    <tr>
+                    <th>Sample Name</th>
+                    <th>Sampling Locality</th>
+                    <th>Year Sampled</th>
+                    <th>Student Samplers</th>
+                    <th>Notes</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {samples.map((sample) => (
+                    <tr key={sample.sample_name}>
+                        <td>{sample.sample_name}</td>
+                        <td>{sample.sampling_locality}</td>
+                        <td>{new Date(sample.year_sampled).toLocaleDateString()}</td>
+                        <td>{sample.student_samplers.map((sampler) => (<p>{sampler}</p>))}</td>
+                        <td>{sample.notes}</td>
+                    </tr>
+                    ))}
+                </tbody>
+                </table>
+            </div>
+        </div>
+    );
+
 };
 
 export default SamplePage;
