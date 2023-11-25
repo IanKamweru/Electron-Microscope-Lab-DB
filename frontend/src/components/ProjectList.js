@@ -1,26 +1,19 @@
 import React, { useEffect, useState } from 'react';
-import { getAllProjects, getSamplesByProject } from '../api/apiClient'; // Import your API functions
+import { Link } from 'react-router-dom';
+import { getAllProjects } from '../api/apiClient'; // Import your API functions
 import "./ProjectList.css"
 
 function ProjectList() {
   const [projects, setProjects] = useState([]);
   const [searchInput, setSearchInput] = useState('');
   const [filteredResults, setFilteredResults] = useState([]);
-  const [showAddProjectForm, setShowAddProjectForm] = useState(false);
 
   useEffect(() => {
     // Fetch projects when the component mounts
     async function fetchProjects() {
       try {
         const projectsData = await getAllProjects();
-        // Fetch and attach samples for each project
-        const projectsWithSamples = await Promise.all(
-          projectsData.map(async (project) => {
-            const samplesData = await getSamplesByProject(project.project_name);
-            return { ...project, samples: samplesData };
-          })
-        );
-        setProjects(projectsWithSamples);
+        setProjects(projectsData);
       } catch (error) {
         console.error('Error fetching projects:', error);
       }
@@ -34,7 +27,7 @@ function ProjectList() {
     const filteredData = projects.filter((project) => {
       return Object.values(project).join('').toLowerCase().includes(searchInput.toLowerCase())
     })
-    console.log("filteredData: ", filteredData);
+    //console.log("filteredData: ", filteredData);
     setFilteredResults(filteredData)
   }
 
@@ -42,11 +35,11 @@ function ProjectList() {
     const filteredData = projects.filter((project) => {
       return Object.values(project).join('').toLowerCase().includes(searchInput.toLowerCase())
     })
-    console.log("filteredData: ", filteredData);
+    //console.log("filteredData: ", filteredData);
     setFilteredResults(filteredData)
   }
 
-  console.log("search input: ", searchInput)
+  //console.log("search input: ", searchInput)
 
   return (
     <div className='center'>
@@ -76,7 +69,9 @@ function ProjectList() {
         // Render all projects when the searchTerm is empty
         projects.map((project) => (
           <tr key={project.project_name}>
-            <td>{project.project_name}</td>
+            <td> 
+				<Link to={`/samples/${project.project_name}`}>{project.project_name}</Link>
+			</td>
             <td>{project.goal}</td>
             <td>{project.supervising_professor}</td>
             <td>{project.student_researchers.map((researcher) => (
@@ -88,7 +83,9 @@ function ProjectList() {
         // Render filtered projects based on the searchTerm
         filteredResults.map((project) => (
           <tr key={project.project_name}>
-            <td>{project.project_name}</td>
+            <td>
+				<Link to={`/samples/${project.project_name}`}>{project.project_name}</Link>
+			</td>
             <td>{project.goal}</td>
             <td>{project.supervising_professor}</td>
             <td>{project.student_researchers.map((researcher) => (
