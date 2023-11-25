@@ -6,7 +6,7 @@ import Project from '../models/Project.js';
 // Function to get all projects
 projectRouter.get('/', async (req, res) => {
   try {
-    const projects = await db.any('SELECT * FROM Project');
+    const projects = await db.any('SELECT * FROM Project ORDER BY project_name');
     const projectObjects = projects.map(project => new Project(project.project_name, project.supervising_professor, project.student_researchers, project.goal));
     console.log('Projects:', projects);
     res.json(projectObjects);

@@ -2,10 +2,11 @@ import React, { useEffect, useState } from 'react';
 import { getAllProjects, getSamplesByProject } from '../api/apiClient'; // Import your API functions
 import "./ProjectList.css"
 
-function ProjectsList() {
+function ProjectList() {
   const [projects, setProjects] = useState([]);
   const [searchInput, setSearchInput] = useState('');
-  const [filteredResults, setFilteredResults] = useState([])
+  const [filteredResults, setFilteredResults] = useState([]);
+  const [showAddProjectForm, setShowAddProjectForm] = useState(false);
 
   useEffect(() => {
     // Fetch projects when the component mounts
@@ -32,17 +33,17 @@ function ProjectsList() {
     setSearchInput(searchValue)
     const filteredData = projects.filter((project) => {
       return Object.values(project).join('').toLowerCase().includes(searchInput.toLowerCase())
-  })
-  console.log("filteredData: ", filteredData);
-  setFilteredResults(filteredData)
+    })
+    console.log("filteredData: ", filteredData);
+    setFilteredResults(filteredData)
   }
 
   const handleOnClick = () => { 
     const filteredData = projects.filter((project) => {
       return Object.values(project).join('').toLowerCase().includes(searchInput.toLowerCase())
-  })
-  console.log("filteredData: ", filteredData);
-  setFilteredResults(filteredData)
+    })
+    console.log("filteredData: ", filteredData);
+    setFilteredResults(filteredData)
   }
 
   console.log("search input: ", searchInput)
@@ -51,7 +52,7 @@ function ProjectsList() {
     <div className='center'>
       <div className='searchButton'>
       <input type='text'
-                placeholder='Search by category...'
+                placeholder='Search by project name, researcher, supervisor, goal...'
                 value={searchInput}
                 onChange={(e) => searchItems(e.target.value)}
                 className = "search-input"
@@ -105,4 +106,4 @@ function ProjectsList() {
 }
 
 
-export default ProjectsList;
+export default ProjectList;

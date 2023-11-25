@@ -21,4 +21,14 @@ export const getSamplesByProject = async (projectName) => {
   }
 };
 
+// Function to add a new project
+export const addProject = async (newProjectData) => {
+  try {
+    const response = await axios.post(endpoints.PROJECTS_API.CREATE_PROJECT, newProjectData);
+    return response.data;
+  } catch (error) {
+    throw error;
+  }
+};
+
 // Add more functions for sample, analysis, and map interactions as needed
