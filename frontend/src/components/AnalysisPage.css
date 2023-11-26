@@ -1,0 +1,19 @@
+/* AnalysisPage.css */
+
+ul {
+    list-style-type: none;
+    padding-left: 2rem;
+  }
+  
+  h2 {
+    color: #333;
+  }
+  
+  span {
+    cursor: pointer;
+  }
+  
+  div {
+    color: #333;
+  }
+  

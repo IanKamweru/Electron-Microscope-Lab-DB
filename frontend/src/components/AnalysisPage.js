@@ -3,11 +3,13 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { getMapsBySample } from '../api/apiClient';
-import { FiFolder, FiFile } from 'react-icons/fi';
+import { FiFile, FiFolder, FiChevronDown, FiChevronRight } from 'react-icons/fi';
+import './AnalysisPage.css';
 
 const AnalysisPage = () => {
   const { project_name, sample_name } = useParams();
   const [mapsByAnalysisType, setMapsByAnalysisType] = useState([]);
+  const [expandedFolders, setExpandedFolders] = useState({});
 
   useEffect(() => {
     // Fetch maps by sample when the component mounts
@@ -52,8 +54,16 @@ const AnalysisPage = () => {
     return fileTree;
   };
 
-  // Function to recursively render the file tree
-  const renderFileTree = (node) => {
+  // Helper function to toggle the expanded state of a folder
+  const toggleFolder = (folder) => {
+    setExpandedFolders((prevExpandedFolders) => ({
+      ...prevExpandedFolders,
+      [folder]: !prevExpandedFolders[folder],
+    }));
+  };
+
+  // Helper function to recursively render the file tree
+  const renderFileTree = (node, path = '') => {
     if (node === null) {
       return null;
     }
@@ -62,18 +72,23 @@ const AnalysisPage = () => {
       <ul>
         {Object.entries(node).map(([name, value]) => (
           <li key={name}>
-            {value === null ? (
-              // If it's a file
-              <div>
-                <FiFile /> {name} {/* Display file icon */}
+            <div>
+              {value !== null && (
+                // Render folder icon and toggle button
+                <span onClick={() => toggleFolder(path + name)}>
+                  {expandedFolders[path + name] ? <FiChevronDown /> : <FiChevronRight />}
+                  <span style={{ color: 'blue' }}>
+                  <FiFolder />
+                </span> {name}
+                </span>
+              )}
+              {value === null && (
+                <div onClick={() => console.log('File clicked:', path + name)}>
+                <FiFile /> {name}
               </div>
-            ) : (
-              // If it's a folder
-              <div>
-                <FiFolder /> {name} {/* Display folder icon */}
-                {renderFileTree(value)} {/* Recursively render child nodes */}
-              </div>
-            )}
+              )}
+              {expandedFolders[path + name] && renderFileTree(value, path + name + '/')}
+            </div>
           </li>
         ))}
       </ul>
