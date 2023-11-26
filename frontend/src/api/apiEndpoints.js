@@ -21,4 +21,6 @@ export const MAPS_API = {
     `${API_BASE}/maps/${analysisId}/${sampleName}/${projectName}`,
   GET_BY_ANALYSIS: (analysisId, sampleName, projectName) =>
     `${API_BASE}/maps/${analysisId}/${sampleName}/${projectName}`,
+  GET_BY_SAMPLE: (sampleName, projectName) =>
+    `${API_BASE}/maps/${sampleName}/${projectName}`,
 };

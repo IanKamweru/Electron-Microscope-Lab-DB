@@ -31,4 +31,14 @@ export const addProject = async (newProjectData) => {
   }
 };
 
+// Function to fetch maps by sample
+export const getMapsBySample = async (projectName, sampleName) => {
+  try {
+    const response = await axios.get(endpoints.MAPS_API.GET_BY_SAMPLE(projectName, sampleName));
+    return response.data;
+  } catch (error) {
+    throw error;
+  }
+};
+
 // Add more functions for sample, analysis, and map interactions as needed

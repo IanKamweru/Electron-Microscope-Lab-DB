@@ -1,19 +1,43 @@
 // AnalysisPage.js
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import { getMapsBySample } from '../api/apiClient'; // Import your API function
 
 const AnalysisPage = () => {
   const { project_name, sample_name } = useParams();
+  const [mapsByAnalysisType, setMapsByAnalysisType] = useState([]);
+
+  useEffect(() => {
+    // Fetch maps by sample when the component mounts
+    async function fetchMaps() {
+      try {
+        const mapsData = await getMapsBySample(project_name, sample_name);
+        setMapsByAnalysisType(mapsData);
+      } catch (error) {
+        console.error('Error fetching maps:', error);
+      }
+    }
+
+    fetchMaps();
+  }, [project_name, sample_name]);
 
   return (
     <div>
-      <h1>Analysis for Sample: {sample_name}</h1>
-      {/* Placeholder for displaying analysis types and maps */}
-      <p>Analysis Type 1: Map 1</p>
-      <p>Analysis Type 2: Map 2</p>
-      <p>Analysis Type 3: Map 3</p>
-      <p>Analysis Type 4: Map 4</p>
+      {/* Display analysis types and maps */}
+      {mapsByAnalysisType.map((analysis) => (
+        <div key={analysis.analysisType}>
+          <h2>{analysis.analysisType}</h2>
+          <ul>
+            {analysis.maps.map((map) => (
+              <li key={map.map_name}>
+                <p>{map.map_name}</p>
+                {/* Display other map details here */}
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
     </div>
   );
 };
