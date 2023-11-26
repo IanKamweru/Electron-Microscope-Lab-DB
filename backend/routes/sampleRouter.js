@@ -10,7 +10,6 @@ sampleRouter.get('/:projectName', async (req, res) => {
   try {
     const samples = await db.any('SELECT * FROM Sample WHERE project_name = $1', projectName);
     const sampleObjects = samples.map(sample => new Sample(sample.sample_name, sample.student_samplers, sample.sampling_locality, sample.year_sampled, sample.notes, sample.project_name));
-    console.log('Samples: ', samples);
     res.json(sampleObjects);
   } catch (error) {
     res.status(500).json({ error: 'Error getting samples for the specified project.' });
