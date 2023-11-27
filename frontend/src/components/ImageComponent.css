@@ -4,7 +4,7 @@
 .image-container {
     width: 70%;
     float: right;
-    margin-right: 20px;
+    margin-right: 12px;
   }
   
   /* Set the img element inside the gallery to occupy 100% of its container */
@@ -18,7 +18,7 @@
   }
   
   .image-info-bar {
-    margin-top: 5px;
+    margin-top: 15px;
     background-color: #ebf5f3; /* Light grey color */
     padding: 8px;
     display: flex;

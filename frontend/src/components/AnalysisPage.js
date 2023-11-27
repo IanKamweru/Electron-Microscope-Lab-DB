@@ -5,6 +5,7 @@ import { useParams } from 'react-router-dom';
 import { getMapsBySample } from '../api/apiClient';
 import { FiFile, FiFolder, FiChevronDown, FiChevronRight } from 'react-icons/fi';
 import './AnalysisPage.css';
+import ImageComponent from './ImageComponent';
 
 const AnalysisPage = () => {
   const { project_name, sample_name } = useParams();
@@ -97,14 +98,21 @@ const AnalysisPage = () => {
 
 
   return (
-    <div>
-      {/* Display file tree structure */}
-      {mapsByAnalysisType.map((analysis) => (
-        <div key={analysis.analysisType}>
-          <h2>{analysis.analysisType}</h2>
-          {renderFileTree(buildFileTree(analysis.analysisType, analysis.maps))}
-        </div>
-      ))}
+    <div className="container">
+      {/* Analysis component (occupying 30%) */}
+      <div className="analysis-container">
+        {mapsByAnalysisType.map((analysis) => (
+          <div key={analysis.analysisType}>
+            {renderFileTree(buildFileTree(analysis.analysisType, analysis.maps))}
+          </div>
+        ))}
+      </div>
+  
+      {/* Image component (occupying 70%) */}
+      <div className="image-container">
+        {/* Include your ImageComponent component here with imagePath prop */}
+        <ImageComponent imagePath='project_1/sample_1/AxioScope/21_GR_14Y_XPL_Cleavage_Zoning.jpg' />
+      </div>
     </div>
   );
 };
