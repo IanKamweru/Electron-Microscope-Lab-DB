@@ -1,0 +1,38 @@
+/* ImageComponent.css */
+
+/* Set the container to occupy 70% of the screen width */
+.image-container {
+    width: 70%;
+    float: right;
+    margin-right: 20px;
+  }
+  
+  /* Set the img element inside the gallery to occupy 100% of its container */
+  .image-container .image-gallery img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border: 2px solid rgb(107, 99, 99); /* border around the image */
+    border-radius: 6px; /* Rounded corners */
+    margin-top: 1px; /* Space between the image and the information bar */
+  }
+  
+  .image-info-bar {
+    margin-top: 5px;
+    background-color: #ebf5f3; /* Light grey color */
+    padding: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 2px solid rgb(107, 99, 99); /* border around the information bar */
+    border-radius: 6px; /* Rounded corners */
+  }
+  
+  /* Style for the image path */
+  .image-info-bar .image-path {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    max-width: 70%; /* Adjust as needed */
+  }
+  

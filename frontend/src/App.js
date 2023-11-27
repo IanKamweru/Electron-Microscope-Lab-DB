@@ -4,6 +4,8 @@ import ProjectList from './components/ProjectList';
 import SamplePage from './components/SamplePage';
 import AnalysisPage from './components/AnalysisPage';
 import Home from './components/Home';
+import ImageComponent from './components/ImageComponent';
+import CSVComponent from './components/CSVComponent';
 
 function App() {
   return (
@@ -14,6 +16,8 @@ function App() {
           <Route path="/" element={<ProjectList />} />
           <Route path='/:project_name/samples' element={<SamplePage />} />
           <Route path='/:project_name/:sample_name/Analysis' element={<AnalysisPage />} />
+          <Route path='/image-test' element={<ImageComponent imagePath={'project_1/sample_1/AxioScope/21_GR_14Y_XPL_Cleavage_Zoning.jpg'} />} />
+          <Route path='/csv-test' element={<CSVComponent />} />
         </Routes>
       </Router>
     </div>
