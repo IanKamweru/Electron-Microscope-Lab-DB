@@ -2,11 +2,13 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { getAllProjects } from '../api/apiClient'; // Import your API functions
 import "./ProjectList.css"
+import ProjectForm from './ProjectForm';
 
 function ProjectList() {
   const [projects, setProjects] = useState([]);
   const [searchInput, setSearchInput] = useState('');
   const [filteredResults, setFilteredResults] = useState([]);
+  const [isFormOpen, setIsFormOpen] = useState(false);
 
   useEffect(() => {
     // Fetch projects when the component mounts
@@ -40,7 +42,7 @@ function ProjectList() {
   }
 
   const handleAddProject = () => {
-    alert('Add Project clicked'); // Replace with your logic for adding a project
+    setIsFormOpen(true);
   }
 
   return (
@@ -103,7 +105,8 @@ function ProjectList() {
     </tbody>
       </table>
       </div>
-       
+      
+      <ProjectForm isOpen={isFormOpen} onClose={() => setIsFormOpen(false)} />
     </div>
   );
 }
