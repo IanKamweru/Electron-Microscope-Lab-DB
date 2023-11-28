@@ -11,6 +11,7 @@
   .image-container .image-gallery img {
     width: 100%;
     height: auto;
+    max-height: 120vh;
     display: block;
     border: 2px solid rgb(107, 99, 99); /* border around the image */
     border-radius: 6px; /* Rounded corners */
