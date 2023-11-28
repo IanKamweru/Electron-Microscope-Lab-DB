@@ -10,13 +10,19 @@ import ImageComponent from './ImageComponent';
 const AnalysisPage = () => {
   const { project_name, sample_name } = useParams();
   const [mapsByAnalysisType, setMapsByAnalysisType] = useState([]);
+  const [hoveredItem, setHoveredItem] = useState(null);
   const [expandedFolders, setExpandedFolders] = useState({});
+  const [originalPaths, setOriginalPaths] = useState([]);
+  const [selectedImagePath, setSelectedImagePath] = useState(null);
+
 
   useEffect(() => {
     // Fetch maps by sample when the component mounts
     async function fetchMaps() {
       try {
         const mapsData = await getMapsBySample(project_name, sample_name);
+        setOriginalPaths(mapsData.map(file => file.file_path));
+        console.log('paths',originalPaths);
         setMapsByAnalysisType(mapsData);
       } catch (error) {
         console.error('Error fetching maps:', error);
@@ -24,7 +30,7 @@ const AnalysisPage = () => {
     }
 
     fetchMaps();
-  }, [project_name, sample_name]);
+  }, [project_name, sample_name, originalPaths]);
 
   // Helper function to convert file path into a file tree structure
   const buildFileTree = (analysisType, files) => {
@@ -72,7 +78,12 @@ const AnalysisPage = () => {
     return (
       <ul>
         {Object.entries(node).map(([name, value]) => (
-          <li key={name}>
+          <li key={name}
+              // Add event handlers to handle hover
+              onMouseEnter={() => setHoveredItem(path + name)}
+              onMouseLeave={() => setHoveredItem(null)}
+              className={hoveredItem === path + name ? 'highlighted' : ''}
+          >
             <div>
               {value !== null && (
                 // Render folder icon and toggle button
@@ -84,7 +95,10 @@ const AnalysisPage = () => {
                 </span>
               )}
               {value === null && (
-                <div onClick={() => console.log('File clicked:', path + name)}>
+                <div onClick={() => {
+                  setSelectedImagePath(null);
+                  setSelectedImagePath(project_name+'/'+sample_name+'/'+path+name); 
+                }}>
                 <FiFile /> {name}
               </div>
               )}
@@ -111,7 +125,7 @@ const AnalysisPage = () => {
       {/* Image component (occupying 70%) */}
       <div className="image-container">
         {/* Include your ImageComponent component here with imagePath prop */}
-        <ImageComponent imagePath='project_1/sample_1/AxioScope/21_GR_14Y_XPL_Cleavage_Zoning.jpg' />
+        <ImageComponent imagePath={selectedImagePath} />
       </div>
     </div>
   );
