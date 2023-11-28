@@ -39,20 +39,26 @@ function ProjectList() {
     setFilteredResults(filteredData)
   }
 
-  //console.log("search input: ", searchInput)
+  const handleAddProject = () => {
+    alert('Add Project clicked'); // Replace with your logic for adding a project
+  }
 
   return (
     <div className='center'>
-      <div className='searchButton'>
-      <input type='text'
-                placeholder='Search by project name, researcher, supervisor, goal...'
-                value={searchInput}
-                onChange={(e) => searchItems(e.target.value)}
-                className = "search-input"
-            />
-       <button className="btn" onClick={handleOnClick}> Search
-          </button>
-
+      <div className='search-container'>
+        <button className='btn addProjectButton' onClick={handleAddProject}>
+          Add Project
+        </button>
+        <input
+          type='text'
+          placeholder='Search by project name, researcher, supervisor, goal...'
+          value={searchInput}
+          onChange={(e) => searchItems(e.target.value)}
+          className='search-input'
+        />
+        <button className='btn' onClick={handleOnClick}>
+          Search
+        </button>
       </div>
       <div className='table-container'>
       <table className="table">
