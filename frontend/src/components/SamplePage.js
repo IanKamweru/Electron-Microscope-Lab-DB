@@ -2,10 +2,13 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 import { getSamplesByProject } from '../api/apiClient';
+import SampleForm from './SampleForm';
+import './SamplePage.css';
 
 const SamplePage = () => {
     const { project_name } = useParams();
     const [samples, setSamples] = useState([]);
+    const [isSampleFormOpen, setSampleFormOpen] = useState(false);
 
   useEffect(() => {
     // Fetch samples for the selected project when the component mounts
@@ -23,13 +26,18 @@ const SamplePage = () => {
 
     return (
         <div className='center'>
+          <button className='btn addSampleButton' onClick={() => setSampleFormOpen(true)}>
+            Add Sample
+          </button>
+          <SampleForm isOpen={isSampleFormOpen} onClose={() => setSampleFormOpen(false)} />
+          
             <div className='table-container'>
                 <table className="table">
                 <thead>
                     <tr>
                     <th>Sample Name</th>
                     <th>Sampling Locality</th>
-                    <th>Year Sampled</th>
+                    <th>Date Sampled</th>
                     <th>Student Samplers</th>
                     <th>Notes</th>
                     </tr>

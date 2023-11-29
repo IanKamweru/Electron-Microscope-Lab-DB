@@ -1,0 +1,46 @@
+/* SampleForm.css */
+
+.sample-form {
+    max-width: 400px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.sample-form label {
+  display: block;
+  margin-bottom: 8px;
+}
+
+.sample-form input,
+.sample-form textarea {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+}
+
+.sample-form textarea {
+  resize: vertical;
+}
+
+.sample-form button {
+  background-color: #3498db;
+  color: #fff;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+}
+
+.sample-form button:hover {
+  background-color: #217dbb;
+}
+
+.error-message {
+  color: red;
+  font-weight: bold;
+  font-size: 14px;
+  margin-top: 5px;
+}

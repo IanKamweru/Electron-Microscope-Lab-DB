@@ -13,18 +13,22 @@
     margin-bottom: 8px;
   }
   
-  .project-form input {
+  .project-form input, .project-form textarea {
     width: 100%;
     padding: 8px;
-    margin-bottom: 16px;
+    margin-bottom: 10px;
     box-sizing: border-box;
   }
   
+  .project-form textarea {
+    resize: vertical;
+  }
+
   .project-form button {
     background-color: #3498db;
     color: #fff;
     border: none;
-    padding: 10px 15px;
+    padding: 10px;
     border-radius: 4px;
     cursor: pointer;
   }
@@ -37,4 +41,5 @@
     color: red;
     font-weight: bold;
     font-size: 12px;
+    margin-top: 5px;
   }

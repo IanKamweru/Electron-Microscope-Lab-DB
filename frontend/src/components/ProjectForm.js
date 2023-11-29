@@ -8,14 +8,12 @@ const ProjectForm = ({ isOpen, onClose }) => {
   const [projectGoal, setProjectGoal] = useState('');
   const [supervisingProfessor, setSupervisingProfessor] = useState('');
   const [studentResearchers, setStudentResearchers] = useState('');
-  const [error, setError] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
     // Validation: Project Name cannot be blank
     if (!projectName.trim()) {
-      setError('Project Name cannot be blank.');
       return;
     }
 
@@ -51,44 +49,37 @@ const ProjectForm = ({ isOpen, onClose }) => {
 
   return (
     <Modal isOpen={isOpen} onClose={() => {
-      setError(''); // Clear error when closing the modal
       onClose();
     }}>
       <form className="project-form" onSubmit={handleSubmit}>
-        <label>
-          * Project Name:
+        <label>Project Name:</label>
           <input
             type="text"
             value={projectName}
             onChange={(e) => setProjectName(e.target.value)}
           />
-        </label>
-        <label>
-          Project Goal:
-          <input
-            type="text"
-            value={projectGoal}
-            onChange={(e) => setProjectGoal(e.target.value)}
-          />
-        </label>
-        <label>
-          Supervising Professor:
+        
+        <label>Supervising Professor:</label>
           <input
             type="text"
             value={supervisingProfessor}
             onChange={(e) => setSupervisingProfessor(e.target.value)}
           />
-        </label>
-        <label>
-          Student Researchers:
+        
+        <label>Student Researchers:</label>
           <input
             type="text"
             value={studentResearchers}
             onChange={(e) => setStudentResearchers(e.target.value)}
             placeholder="Separate with commas"
           />
+        
+        <label>
+          Project Goal:
         </label>
-        {error && <p className="error-message">{error}</p>}
+        <textarea value={projectGoal} onChange={(e) => setProjectGoal(e.target.value)} />
+
+        {!projectName.trim() && <p className="error-message">Project Name is required</p>}
         <button type="submit">Add Project</button>
       </form>
     </Modal>

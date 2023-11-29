@@ -1,0 +1,11 @@
+.addSampleButton {
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    margin: 20px;
+    float: inline-start;
+  }
+
+.table-container {
+  margin-top: 20px;
+}
