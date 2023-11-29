@@ -69,7 +69,7 @@ const FileForm = ({ isOpen, onClose, onSubmit }) => {
           <label>Choose File(s):</label>
           <input type="file" multiple onChange={handleFileChange} />
 
-          {(!analysisType || files.length === 0) && <p className="error-message">Sample Name is required</p>}
+          {(!analysisType || files.length === 0) && <p className="error-message">Please select analysis type and choose files.</p>}
 
           <button type="submit">Add Files</button>
         </form>
