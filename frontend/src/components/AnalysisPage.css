@@ -42,3 +42,22 @@
     background-color: #eceff0;
     cursor: pointer;
   }
+
+  .add-files-button {
+    padding: 10px;
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    min-height: 40px;
+    min-width: 90px;
+    margin-left: 40px;
+    margin-top: 20px;
+    font-size: 1em;
+  }
+
+  .add-files-button:hover {
+    background-color: #217dbb;
+  }
+  

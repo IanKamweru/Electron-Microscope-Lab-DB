@@ -4,8 +4,9 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { getMapsBySample } from '../api/apiClient';
 import { FiFile, FiFolder, FiChevronDown, FiChevronRight } from 'react-icons/fi';
-import './AnalysisPage.css';
 import ImageComponent from './ImageComponent';
+import FileForm from './FileForm';
+import './AnalysisPage.css';
 
 const AnalysisPage = () => {
   const { project_name, sample_name } = useParams();
@@ -14,6 +15,7 @@ const AnalysisPage = () => {
   const [expandedFolders, setExpandedFolders] = useState({});
   const [originalPaths, setOriginalPaths] = useState([]);
   const [selectedImagePath, setSelectedImagePath] = useState(null);
+  const [isFileFormOpen, setFileFormOpen] = useState(false);
 
 
   useEffect(() => {
@@ -112,7 +114,14 @@ const AnalysisPage = () => {
 
 
   return (
-    <div className="container">
+    <div>
+      {/* Add Files button */}
+      <button className="add-files-button" onClick={() => setFileFormOpen(true)}>
+        Add Files
+      </button>
+      <FileForm isOpen={isFileFormOpen} onClose={() => setFileFormOpen(false)} />
+
+      <div className="container">
       {/* Analysis component (occupying 30%) */}
       <div className="analysis-container">
         {mapsByAnalysisType.map((analysis) => (
@@ -127,6 +136,7 @@ const AnalysisPage = () => {
         {/* Include your ImageComponent component here with imagePath prop */}
         <ImageComponent imagePath={selectedImagePath} />
       </div>
+    </div>
     </div>
   );
 };

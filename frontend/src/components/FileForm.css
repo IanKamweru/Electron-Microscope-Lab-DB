@@ -1,0 +1,57 @@
+.file-form {
+    max-width: 400px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+.file-form label {
+  margin-top: 10px;
+  display: block;
+}
+
+.file-modal {
+  z-index: 1000;
+}
+
+.modal-overlay {
+  z-index: 999;
+}
+
+.file-form select,
+.file-form textarea,
+.file-form input {
+  width: 100%;
+  margin-top: 5px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.file-form textarea {
+  resize: vertical;
+}
+
+.file-form button {
+  margin-top: 10px;
+  padding: 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.file-form button:hover {
+  background-color: #0056b3;
+}
+
+.error-message {
+  color: red;
+  font-weight: bold;
+  font-size: 14px;
+  margin-top: 8px;
+}
