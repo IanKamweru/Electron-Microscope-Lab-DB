@@ -31,6 +31,16 @@ export const addProject = async (newProjectData) => {
   }
 };
 
+// Function to add a new sample
+export const addSample = async (newSampleData) => {
+  try {
+    const response = await axios.post(endpoints.SAMPLES_API.CREATE_SAMPLE, newSampleData);
+    return response.data;
+  } catch (error) {
+    throw error;
+  }
+}
+
 // Function to fetch maps by sample
 export const getMapsBySample = async (projectName, sampleName) => {
   try {

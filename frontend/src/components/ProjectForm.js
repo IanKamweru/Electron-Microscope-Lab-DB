@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import Modal from './Modal';
 import './ProjectForm.css';
+import { addProject } from '../api/apiClient';
 
 const ProjectForm = ({ isOpen, onClose }) => {
   const [projectName, setProjectName] = useState('');
@@ -9,7 +10,7 @@ const ProjectForm = ({ isOpen, onClose }) => {
   const [supervisingProfessor, setSupervisingProfessor] = useState('');
   const [studentResearchers, setStudentResearchers] = useState('');
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     // Validation: Project Name cannot be blank
@@ -19,19 +20,25 @@ const ProjectForm = ({ isOpen, onClose }) => {
 
     // Split student researchers into an array
     const researchersArray = studentResearchers.split(',').map((researcher) => researcher.trim());
+    const projectData = {
+      project_name: projectName,
+      supervising_professor: supervisingProfessor,
+      goal: projectGoal,
+      student_researchers: researchersArray,
+    };
 
-    // Handle the form submission logic here (for example, send data to an API)
-    console.log('Form submitted with data:', {
-      projectName,
-      projectGoal,
-      supervisingProfessor,
-      studentResearchers: researchersArray,
-    });
+    try {
+      await addProject(projectData);
+      console.log('Project added successfully!');
 
-    setProjectName('');
-    setProjectGoal('');
-    setSupervisingProfessor('');
-    setStudentResearchers('');
+      // Clear form fields
+      setProjectName('');
+      setProjectGoal('');
+      setSupervisingProfessor('');
+      setStudentResearchers('');
+    } catch (error) {
+      console.error('Failed to add project:', error.message);
+    }
 
     // Close the modal after submission
     onClose();

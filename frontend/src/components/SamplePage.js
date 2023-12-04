@@ -29,7 +29,7 @@ const SamplePage = () => {
           <button className='btn addSampleButton' onClick={() => setSampleFormOpen(true)}>
             Add Sample
           </button>
-          <SampleForm isOpen={isSampleFormOpen} onClose={() => setSampleFormOpen(false)} />
+          <SampleForm isOpen={isSampleFormOpen} onClose={() => setSampleFormOpen(false)} project_name={project_name} />
           
             <div className='table-container'>
                 <table className="table">

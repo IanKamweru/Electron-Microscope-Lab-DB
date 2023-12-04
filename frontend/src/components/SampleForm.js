@@ -1,40 +1,49 @@
 // SampleForm.js
 import React, { useState, useEffect } from 'react';
 import Modal from './Modal';
-import './SampleForm.css'; // Don't forget to create the CSS file for styling
+import './SampleForm.css';
+import { addSample } from '../api/apiClient';
 
-const SampleForm = ({ isOpen, onClose, onSubmit }) => {
+const SampleForm = ({ isOpen, onClose, project_name }) => {
   const [sampleName, setSampleName] = useState('');
   const [samplingLocality, setSamplingLocality] = useState('');
   const [dateSampled, setDateSampled] = useState('');
   const [studentSamplers, setStudentSamplers] = useState('');
   const [notes, setNotes] = useState('');
 
-  const handleFormSubmit = (event) => {
+  const handleFormSubmit = async (event) => {
     event.preventDefault();
 
     // Validate sample name
     if (!sampleName.trim()) {
-      // Handle validation error, e.g., display an error message
       return;
     }
 
-    console.log('Form submitted with data:', {
-      sampleName,
-      samplingLocality,
-      dateSampled,
-      studentSamplers: studentSamplers.split(',').map((s) => s.trim()),
-      notes,
-    });
+    const newSampleData = {
+      sample_name: sampleName,
+      sampling_locality: samplingLocality,
+      year_sampled: dateSampled,
+      student_samplers: studentSamplers.split(',').map((s) => s.trim()),
+      notes: notes,
+      project_name: project_name, // Pass the project_name from props
+    };
 
-    // Clear the input fields
-    setSampleName('');
-    setSamplingLocality('');
-    setDateSampled('');
-    setStudentSamplers('');
-    setNotes('');
+    try {
+      const createdSample = await addSample(newSampleData);
 
-    onClose();
+      console.log('Sample added:', createdSample);
+
+      // Clear the input fields
+      setSampleName('');
+      setSamplingLocality('');
+      setDateSampled('');
+      setStudentSamplers('');
+      setNotes('');
+
+      onClose();
+    } catch (error) {
+      console.error('Error adding sample:', error);
+    }
   };
 
   useEffect(() => {
