@@ -3,14 +3,14 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import ProjectList from './components/ProjectList';
 import SamplePage from './components/SamplePage';
 import AnalysisPage from './components/AnalysisPage';
-import Home from './components/Home';
+import Base from './components/Base';
 import ImageComponent from './components/ImageComponent';
 
 function App() {
   return (
     <div className='App'>
       <Router>
-        <Home />
+        <Base />
         <Routes>
           <Route path="/" element={<ProjectList />} />
           <Route path='/:project_name/samples' element={<SamplePage />} />
