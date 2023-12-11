@@ -17,6 +17,10 @@ const ImageComponent = ({ imagePath }) => {
 
   const handleShowInFolder = () => {
     // TO-DO
+    const fileURL = `/data/${imagePath}`;
+
+    // Open a new window or tab with the file URL
+    window.open(fileURL, '_blank');
   };
 
   return (

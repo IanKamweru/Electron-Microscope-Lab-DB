@@ -61,3 +61,13 @@
 .addProjectButton {
   margin-left: 20px;
 }  
+
+.edit-icon {
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+.table th:first-child,
+.table td:first-child {
+  min-width: 150px;
+}

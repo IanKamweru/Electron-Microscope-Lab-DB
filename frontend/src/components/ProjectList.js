@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { getAllProjects } from '../api/apiClient'; // Import your API functions
 import "./ProjectList.css"
 import ProjectForm from './ProjectForm';
+import { FiEdit } from 'react-icons/fi';
 
 function ProjectList() {
   const [projects, setProjects] = useState([]);
@@ -29,7 +30,6 @@ function ProjectList() {
     const filteredData = projects.filter((project) => {
       return Object.values(project).join('').toLowerCase().includes(searchInput.toLowerCase())
     })
-    //console.log("filteredData: ", filteredData);
     setFilteredResults(filteredData)
   }
 
@@ -37,12 +37,15 @@ function ProjectList() {
     const filteredData = projects.filter((project) => {
       return Object.values(project).join('').toLowerCase().includes(searchInput.toLowerCase())
     })
-    //console.log("filteredData: ", filteredData);
     setFilteredResults(filteredData)
   }
 
   const handleAddProject = () => {
     setIsFormOpen(true);
+  }
+
+  const handleEditProject = (project) => {
+  
   }
 
   return (
@@ -78,8 +81,11 @@ function ProjectList() {
         projects.map((project) => (
           <tr key={project.project_name}>
             <td> 
-				<Link to={`/${project.project_name}/samples`}>{project.project_name}</Link>
-			</td>
+              <Link to={`/${project.project_name}/samples`}>{project.project_name}</Link>
+              <span className="edit-icon" onClick={() => handleEditProject(project)}>
+                  <FiEdit />
+              </span>
+            </td>
             <td>{project.goal}</td>
             <td>{project.supervising_professor}</td>
             <td>{project.student_researchers.map((researcher) => (
@@ -92,8 +98,11 @@ function ProjectList() {
         filteredResults.map((project) => (
           <tr key={project.project_name}>
             <td>
-				<Link to={`/${project.project_name}/samples`}>{project.project_name}</Link>
-			</td>
+              <Link to={`/${project.project_name}/samples`}>{project.project_name}</Link>
+              <span className="edit-icon" onClick={() => handleEditProject(project)}>
+                    <FiEdit />
+              </span>
+            </td>
             <td>{project.goal}</td>
             <td>{project.supervising_professor}</td>
             <td>{project.student_researchers.map((researcher) => (

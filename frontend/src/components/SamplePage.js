@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 import { getSamplesByProject } from '../api/apiClient';
 import SampleForm from './SampleForm';
 import './SamplePage.css';
+import { FiEdit } from 'react-icons/fi';
 
 const SamplePage = () => {
     const { project_name } = useParams();
@@ -23,6 +24,10 @@ const SamplePage = () => {
 
     fetchSamples();
   }, [project_name]);
+
+  const handleEditSample = (sample) => {
+  
+  } 
 
     return (
         <div className='center'>
@@ -47,6 +52,9 @@ const SamplePage = () => {
                     <tr key={sample.sample_name}>
                         <td>
                             <Link to={`/${project_name}/${sample.sample_name}/Analysis`}>{sample.sample_name}</Link>
+                            <span className="edit-icon" onClick={() => handleEditSample(sample)}>
+                              <FiEdit />
+                          </span>
                         </td>
                         <td>{sample.sampling_locality}</td>
                         <td>{new Date(sample.year_sampled).toLocaleDateString()}</td>
