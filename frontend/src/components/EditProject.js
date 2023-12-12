@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import Modal from './Modal';
 import './EditProject.css'; 
-//import { editProject } from '../api/apiClient';
+import { editProject } from '../api/apiClient';
 
 const EditProject = ({ isOpen, onClose, projectData }) => {
   const [editedProjectName, setEditedProjectName] = useState('');
@@ -38,7 +38,7 @@ const EditProject = ({ isOpen, onClose, projectData }) => {
     };
 
     try {
-      //await editProject(projectData.id, editedProjectData);
+      await editProject(editedProjectName, editedProjectData);
       console.log('Project edited successfully!');
 
       // Clear form fields
@@ -62,6 +62,7 @@ const EditProject = ({ isOpen, onClose, projectData }) => {
           type="text"
           value={editedProjectName}
           onChange={(e) => setEditedProjectName(e.target.value)}
+          disabled
         />
         
         <label>Supervising Professor:</label>

@@ -27,6 +27,26 @@ projectRouter.post('/', async (req, res) => {
   }
 });
 
-// Add more CRUD routes for projects as needed
+// Function to update a project
+projectRouter.put('/:projectName', async (req, res) => {
+  try {
+    const projectName = req.params.projectName;
+    const updatedProject = req.body;
+    console.log('updated project:', updatedProject);
+    
+    // Update the project in the database
+    const updatedProjectData = await db.one(
+      'UPDATE Project SET supervising_professor = $1, student_researchers = $2, goal = $3 WHERE project_name = $4 RETURNING *',
+      [updatedProject.supervising_professor, updatedProject.student_researchers, updatedProject.goal, updatedProject.projectName]
+    );
+    // Create a Project object from the updated data
+    const projectObject = new Project(updatedProjectData.project_name, updatedProjectData.supervising_professor, updatedProjectData.student_researchers, updatedProjectData.goal);
+
+    res.json(projectObject);
+  } catch (error) {
+    res.status(500).json({ error: `Error updating project: ${error.message}` });
+  }
+});
+
 
 export default projectRouter;

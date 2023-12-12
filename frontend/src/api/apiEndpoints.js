@@ -3,6 +3,7 @@ const API_BASE = '/api';
 export const PROJECTS_API = {
   GET_ALL: `${API_BASE}/projects`,
   CREATE_PROJECT: `${API_BASE}/projects`,
+  EDIT_PROJECT: (projectName) => `${API_BASE}/projects/${projectName}`,
 };
 
 export const SAMPLES_API = {

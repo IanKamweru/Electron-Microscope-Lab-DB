@@ -51,4 +51,14 @@ export const getMapsBySample = async (projectName, sampleName) => {
   }
 };
 
+// Function to edit a project
+export const editProject = async (projectName, updatedProjectData) => {
+  try {
+    const response = await axios.put(endpoints.PROJECTS_API.EDIT_PROJECT(projectName), updatedProjectData);
+    return response.data;
+  } catch (error) {
+    throw error;
+  }
+};
+
 // Add more functions for sample, analysis, and map interactions as needed
