@@ -52,6 +52,7 @@ const EditProject = ({ isOpen, onClose, projectData }) => {
 
     // Close the modal after submission
     onClose();
+    window.location.reload();
   };
 
   return (

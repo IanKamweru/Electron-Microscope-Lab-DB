@@ -41,6 +41,7 @@ const SampleForm = ({ isOpen, onClose, project_name }) => {
       setNotes('');
 
       onClose();
+      window.location.reload();
     } catch (error) {
       console.error('Error adding sample:', error);
     }

@@ -39,6 +39,7 @@ const FileForm = ({ isOpen, onClose, onSubmit }) => {
     setDescription('');
     setFiles([]);
     onClose();
+    window.location.reload();
   };
 
   useEffect(() => {

@@ -42,6 +42,7 @@ const ProjectForm = ({ isOpen, onClose }) => {
 
     // Close the modal after submission
     onClose();
+    window.location.reload();
   };
 
   useEffect(() => {

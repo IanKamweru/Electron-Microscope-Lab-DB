@@ -56,6 +56,7 @@ const EditSample = ({ isOpen, onClose, sampleData }) => {
 
     // Close the modal after submission
     onClose();
+    window.location.reload();
   };
 
   return (
