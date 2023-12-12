@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { getAllProjects } from '../api/apiClient'; // Import your API functions
 import "./ProjectList.css"
 import ProjectForm from './ProjectForm';
+import EditProject from './EditProject';
 import { FiEdit } from 'react-icons/fi';
 
 function ProjectList() {
@@ -10,6 +11,8 @@ function ProjectList() {
   const [searchInput, setSearchInput] = useState('');
   const [filteredResults, setFilteredResults] = useState([]);
   const [isFormOpen, setIsFormOpen] = useState(false);
+  const [selectedProject, setSelectedProject] = useState(null);
+  const [isEditFormOpen, setIsEditFormOpen] = useState(false);
 
   useEffect(() => {
     // Fetch projects when the component mounts
@@ -45,8 +48,9 @@ function ProjectList() {
   }
 
   const handleEditProject = (project) => {
-  
-  }
+    setSelectedProject(project);
+    setIsEditFormOpen(true);
+  };
 
   return (
     <div className='center'>
@@ -116,6 +120,17 @@ function ProjectList() {
       </div>
       
       <ProjectForm isOpen={isFormOpen} onClose={() => setIsFormOpen(false)} />
+
+      {selectedProject && (
+      <EditProject
+        isOpen={isEditFormOpen}
+        onClose={() => {
+          setIsEditFormOpen(false);
+          setSelectedProject(null); // Clear the selected project after closing the modal
+        }}
+        projectData={selectedProject}
+        />
+      )}
     </div>
   );
 }
