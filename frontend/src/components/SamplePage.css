@@ -9,3 +9,8 @@
 .table-container {
   margin-top: 20px;
 }
+
+.table td:last-child {
+  max-width: 500px;
+  word-wrap: break-word;
+}
