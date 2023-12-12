@@ -62,4 +62,15 @@ export const editProject = async (updatedProjectData) => {
   }
 };
 
+// Function to edit a sample
+export const editSample = async (updatedSampleData) => {
+  try {
+    //console.log('Request payload:', updatedSampleData);
+    const response = await axios.put(endpoints.SAMPLES_API.EDIT_SAMPLE, updatedSampleData);
+    return response.data;
+  } catch (error) {
+    throw error;
+  }
+};
+
 // Add more functions for sample, analysis, and map interactions as needed

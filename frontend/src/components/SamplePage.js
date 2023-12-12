@@ -4,12 +4,15 @@ import { useParams } from 'react-router-dom';
 import { getSamplesByProject } from '../api/apiClient';
 import SampleForm from './SampleForm';
 import './SamplePage.css';
+import EditSample from './EditSample';
 import { FiEdit } from 'react-icons/fi';
 
 const SamplePage = () => {
     const { project_name } = useParams();
     const [samples, setSamples] = useState([]);
     const [isSampleFormOpen, setSampleFormOpen] = useState(false);
+    const [isEditSampleOpen, setEditSampleOpen] = useState(false);
+    const [selectedSample, setSelectedSample] = useState(null);
 
   useEffect(() => {
     // Fetch samples for the selected project when the component mounts
@@ -26,8 +29,9 @@ const SamplePage = () => {
   }, [project_name]);
 
   const handleEditSample = (sample) => {
-  
-  } 
+    setSelectedSample(sample);
+    setEditSampleOpen(true);
+  };
 
     return (
         <div className='center'>
@@ -65,6 +69,18 @@ const SamplePage = () => {
                 </tbody>
                 </table>
             </div>
+
+            {/* EditSample modal */}
+            {selectedSample && (
+              <EditSample
+                isOpen={isEditSampleOpen}
+                onClose={() => {
+                  setEditSampleOpen(false);
+                  setSelectedSample(null); // Clear the selected sample after closing the modal
+                }}
+                sampleData={selectedSample}
+              />
+            )}
         </div>
     );
 

@@ -1,0 +1,48 @@
+/* EditSample.css */
+.edit-sample-form {
+    max-width: 400px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .edit-sample-form label {
+    display: block;
+    margin-bottom: 8px;
+  }
+  
+  .edit-sample-form input,
+  .edit-sample-form textarea {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+  }
+  
+  .edit-sample-form textarea {
+    resize: vertical;
+    min-height: 100px;
+  }
+  
+  .edit-sample-form button {
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .edit-sample-form button:hover {
+    background-color: #217dbb;
+  }
+  
+  .error-message {
+    color: red;
+    font-weight: bold;
+    font-size: 12px;
+    margin-top: 5px;
+  }
+  

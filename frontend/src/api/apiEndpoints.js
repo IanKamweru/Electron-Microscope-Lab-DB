@@ -9,6 +9,7 @@ export const PROJECTS_API = {
 export const SAMPLES_API = {
   CREATE_SAMPLE: `${API_BASE}/samples`,
   GET_BY_PROJECT: (projectName) => `${API_BASE}/samples/${projectName}`,
+  EDIT_SAMPLE: `${API_BASE}/samples`,
 };
 
 export const ANALYSES_API = {

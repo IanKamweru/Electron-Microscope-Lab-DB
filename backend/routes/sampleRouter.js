@@ -28,6 +28,27 @@ sampleRouter.post('/', async (req, res) => {
   }
 });
 
+// Function to update a sample
+sampleRouter.put('/', async (req, res) => {
+  try {
+    const updatedSample = req.body;
+    const updatedSampleData = await db.one(
+      'UPDATE Sample SET sampling_locality = $1, year_sampled = $2, student_samplers = $3, notes = $4 WHERE sample_name = $5 RETURNING *',
+      [
+        updatedSample.sampling_locality,
+        updatedSample.year_sampled,
+        updatedSample.student_samplers,
+        updatedSample.notes,
+        updatedSample.sample_name,
+      ]
+    );
+    //console.log('data: ',updatedSampleData);
+    res.json(updatedSampleData);
+  } catch (error) {
+    res.status(500).json({ error: `Error updating sample: ${error.message}` });
+  }
+});
+
 // Add more CRUD routes for samples as needed
 
 export default sampleRouter;
