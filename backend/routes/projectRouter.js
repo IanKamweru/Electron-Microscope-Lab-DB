@@ -28,21 +28,15 @@ projectRouter.post('/', async (req, res) => {
 });
 
 // Function to update a project
-projectRouter.put('/:projectName', async (req, res) => {
+projectRouter.put('/', async (req, res) => {
   try {
-    const projectName = req.params.projectName;
     const updatedProject = req.body;
-    console.log('updated project:', updatedProject);
-    
-    // Update the project in the database
-    const updatedProjectData = await db.one(
+    const updatedProjectData = await db.any(
       'UPDATE Project SET supervising_professor = $1, student_researchers = $2, goal = $3 WHERE project_name = $4 RETURNING *',
-      [updatedProject.supervising_professor, updatedProject.student_researchers, updatedProject.goal, updatedProject.projectName]
+      [updatedProject.supervising_professor, updatedProject.student_researchers, updatedProject.goal, updatedProject.project_name]
     );
-    // Create a Project object from the updated data
-    const projectObject = new Project(updatedProjectData.project_name, updatedProjectData.supervising_professor, updatedProjectData.student_researchers, updatedProjectData.goal);
-
-    res.json(projectObject);
+    //console.log('data: ',updatedProjectData);
+    res.json(updatedProjectData);
   } catch (error) {
     res.status(500).json({ error: `Error updating project: ${error.message}` });
   }

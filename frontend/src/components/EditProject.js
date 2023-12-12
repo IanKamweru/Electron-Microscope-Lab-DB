@@ -38,7 +38,7 @@ const EditProject = ({ isOpen, onClose, projectData }) => {
     };
 
     try {
-      await editProject(editedProjectName, editedProjectData);
+      await editProject(editedProjectData);
       console.log('Project edited successfully!');
 
       // Clear form fields
