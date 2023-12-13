@@ -24,7 +24,6 @@ const AnalysisPage = () => {
       try {
         const mapsData = await getMapsBySample(project_name, sample_name);
         setOriginalPaths(mapsData.map(file => file.file_path));
-        console.log('paths',originalPaths);
         setMapsByAnalysisType(mapsData);
       } catch (error) {
         console.error('Error fetching maps:', error);

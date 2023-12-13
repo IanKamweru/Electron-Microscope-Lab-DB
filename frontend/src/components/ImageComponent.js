@@ -17,10 +17,9 @@ const ImageComponent = ({ imagePath }) => {
 
   const handleShowInFolder = () => {
     // TO-DO
-    const fileURL = `/data/${imagePath}`;
-
-    // Open a new window or tab with the file URL
-    window.open(fileURL, '_blank');
+    let input = document.createElement('input');
+    input.type = 'file';
+    input.click()
   };
 
   return (
@@ -28,6 +27,8 @@ const ImageComponent = ({ imagePath }) => {
       <div className="image-info-bar">
         <div className="image-path">{imagePath}</div>
         <button onClick={handleShowInFolder}>Show in Folder</button>
+      
+        {/*<input type="file" onChange={() => {}}/>*/}
       </div>
       {/* Conditionally render Gallery or default image */}
       {isImage ? (
