@@ -14,3 +14,9 @@
   max-width: 500px;
   word-wrap: break-word;
 }
+
+.center{
+  font-style: oblique;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: medium;
+}
