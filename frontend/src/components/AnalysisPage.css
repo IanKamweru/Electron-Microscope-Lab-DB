@@ -45,7 +45,7 @@
 
   .add-files-button {
     padding: 10px;
-    background-color: #3498db;
+    background-color: #311a4d;
     color: #fff;
     border: none;
     border-radius: 5px;
@@ -58,6 +58,6 @@
   }
 
   .add-files-button:hover {
-    background-color: #217dbb;
+    background-color: #27153d;
   }
   

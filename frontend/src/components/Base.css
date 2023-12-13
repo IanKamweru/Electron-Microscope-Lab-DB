@@ -3,8 +3,12 @@
 }
 
 .Home-logo {
-  height: 40vmin;
+  width: 100px;
   pointer-events: none;
+  height: auto;
+    position: absolute;
+    top: 25px;
+    left: 30px;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -14,16 +18,24 @@
 }
 
 .Home-header {
-  background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(40, 40, 40, 0.8));
+  background: linear-gradient(#311a4d, #311a4d);
   min-height: 150px;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  flex-direction: row;
+  align-items: flex-start;
   font-size: calc(10px + 2vmin);
   color: white;
+  position: relative;
+}
+
+.Home-header-text {
+  position: absolute; /* Position relative to header */
+  color: white;
+  right: 380px;
+  top:20px;
+  z-index: 2; /* Ensure text is above the logo if they overlap */
 }
 
 .Home-link {
-  color: #61dafb;
+  color: #311a4d;
 }

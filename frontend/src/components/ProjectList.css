@@ -33,7 +33,7 @@
 .search-input {
   padding: 10px;
   font-size: 16px;
-  border: 2px solid #3498db;
+  border: 2px solid rgba(51, 0, 62, 0.916);
   border-radius: 5px;
   margin-right: 10px;
   margin-left: 14em;
@@ -43,7 +43,7 @@
 .btn {
   padding: 10px 20px;
   font-size: 16px;
-  background-color: #3498db;
+  background-color: #311a4d;
   color: #fff;
   border: none;
   border-radius: 5px;
@@ -51,7 +51,7 @@
 }
 
 .btn:hover {
-  background-color: #217dbb;
+  background-color: #2c1a42;
 }
 
 .center {
