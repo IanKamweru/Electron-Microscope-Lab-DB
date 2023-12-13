@@ -35,6 +35,7 @@ const SamplePage = () => {
 
     return (
         <div className='center'>
+          <h1>{project_name}</h1>
           <button className='btn addSampleButton' onClick={() => setSampleFormOpen(true)}>
             Add Sample
           </button>

@@ -27,7 +27,7 @@
 }
 
 .sample-form button {
-  background-color: (#311a4d);
+  background-color: #311a4d !important;
   color: #fff;
   padding: 10px;
   border: none;
@@ -35,7 +35,7 @@
 }
 
 .sample-form button:hover {
-  background-color: #27153d;
+  background-color: #27153d !important;
 }
 
 .error-message {
