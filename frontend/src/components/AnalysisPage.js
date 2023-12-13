@@ -114,7 +114,7 @@ const AnalysisPage = () => {
 
   return (
     <div>
-    <div className='centerhere'>
+    <div className='center'>
       <h1>{sample_name}</h1>
       </div>
     <div>
