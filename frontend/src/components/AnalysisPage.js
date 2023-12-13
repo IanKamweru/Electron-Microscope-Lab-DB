@@ -114,6 +114,10 @@ const AnalysisPage = () => {
 
   return (
     <div>
+    <div className='centerhere'>
+      <h1>{sample_name}</h1>
+      </div>
+    <div>
       {/* Add Files button */}
       <button className="add-files-button" onClick={() => setFileFormOpen(true)}>
         Add Files
@@ -135,6 +139,7 @@ const AnalysisPage = () => {
         {/* Include your ImageComponent component here with imagePath prop */}
         <ImageComponent imagePath={selectedImagePath} />
       </div>
+    </div>
     </div>
     </div>
   );

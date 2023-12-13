@@ -6,7 +6,7 @@ function Base() {
     return (
         <div className="Home">
             <header className="Home-header">
-                <img src={myImage} alt="Descriptive Alt Text" className="Home-logo" />
+                <img src={myImage} alt="Amherst Logo" className="Home-logo" />
                 <div className="Home-header-text">
                     <h1>Beneski EML DataHub</h1>
                 </div>

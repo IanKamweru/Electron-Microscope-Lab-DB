@@ -26,7 +26,7 @@
   }
 
   .edit-project-form button {
-    background-color: #3498db;
+    background-color: #311a4d !important;
     color: #fff;
     border: none;
     padding: 10px;
@@ -35,7 +35,7 @@
   }
   
   .edit-project-form button:hover {
-    background-color: #217dbb;
+    background-color: #27153d !important;
   }
   
   .error-message {

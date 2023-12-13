@@ -27,7 +27,7 @@
   }
   
   .edit-sample-form button {
-    background-color: #3498db;
+    background-color: #311a4d;
     color: #fff;
     border: none;
     padding: 10px;
@@ -36,7 +36,7 @@
   }
   
   .edit-sample-form button:hover {
-    background-color: #217dbb;
+    background-color: #27153d !important;
   }
   
   .error-message {

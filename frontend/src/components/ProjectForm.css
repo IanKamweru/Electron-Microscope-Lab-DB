@@ -10,13 +10,13 @@
   
   .project-form label {
     display: block;
-    margin-bottom: 8px;
+    margin-bottom: 4px;
   }
   
   .project-form input, .project-form textarea {
     width: 100%;
-    padding: 8px;
-    margin-bottom: 10px;
+    padding: 3px;
+    margin-bottom: 4px;
     box-sizing: border-box;
   }
   
@@ -25,7 +25,7 @@
   }
 
   .project-form button {
-    background-color: #3498db;
+    background-color: #311a4d !important;
     color: #fff;
     border: none;
     padding: 10px;
@@ -34,7 +34,7 @@
   }
   
   .project-form button:hover {
-    background-color: #217dbb;
+    background-color: #27153d !important;
   }
   
   .error-message {
