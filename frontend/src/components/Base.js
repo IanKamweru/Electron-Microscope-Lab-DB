@@ -1,6 +1,6 @@
 import React from 'react';
 import "./Base.css";
-import myImage from '/home/gsantosrocha24/Electron-Microscope-Lab-DB/frontend/src/components/logo.png'; // Path to your image file
+import myImage from './logo.png';
 
 function Base() {
     return (
