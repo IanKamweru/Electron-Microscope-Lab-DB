@@ -9,7 +9,7 @@ CREATE TABLE Sample (
     sample_name VARCHAR(50) PRIMARY KEY,
     student_samplers VARCHAR(128)[],
     sampling_locality VARCHAR(128),
-    year_sampled DATE,
+    date_sampled DATE,
     notes VARCHAR(1024),
     project_name VARCHAR(50) REFERENCES Project(project_name)
 );
