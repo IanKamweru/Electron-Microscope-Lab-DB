@@ -115,7 +115,7 @@ const AnalysisPage = () => {
   return (
     <div>
     <div className='center'>
-      <h1>{sample_name}</h1>
+      {/*<h1>{sample_name}</h1>*/}
       </div>
     <div>
       {/* Add Files button */}
