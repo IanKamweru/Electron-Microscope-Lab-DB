@@ -34,7 +34,7 @@ We have 4 entities:
 
 ## Relational Schema
 
-![Relational Schema](rel_schema.jpeg)
+![Relational Schema](rel_schema.png)
 
 ## Software Installed
 - **postgresql v13.11 - database management system :** `sudo yum install postgresql-server`
