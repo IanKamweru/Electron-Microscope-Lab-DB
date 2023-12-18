@@ -9,7 +9,7 @@ const connectionString = 'postgres://postgres:lalala321@cosc-257-node03.cs.amher
 // Create a database instance
 const db = pgp(connectionString);
 
-// validate tavles
+// validate tables
 async function validateTables() {
   const tableNames = ['project', 'sample', 'analysis', 'map'];
 
