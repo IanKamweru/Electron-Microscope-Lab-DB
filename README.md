@@ -69,16 +69,15 @@ We have 4 entities:
 - [x] **Start implementing the front end in React**
 
 ### Phase 4
-- [ ] **Complete the frontend logic**
-- [ ] **Complete the CSS styling**
+- [x] **Complete the frontend logic**
+- [x] **Complete the CSS styling**
 
 ## **Stretch Goals**
 - [ ] **Containerize the platform in a Docker image**
 - [ ] **Deploy the docker image on the actual TrueNAS server where real data is stored**
 
 ## Open Questions
-1. How do we access the file system of the TrueNAS Scale server in order to extract file paths?
-2. We are storing file paths to the maps. Since we can't display the images and csvs directly due to their large sizes, we were aiming to display each map name and make each clickeable redirecting the user to the location of that file. Is this plausible? If not, what else can we do having the file paths?
+1. How do we access the file system of the TrueNAS Scale server in order to extract file paths and open file locations?
 
 ## Role Assignments
 | Ian | Guilherme | Abdul | Arjun |
